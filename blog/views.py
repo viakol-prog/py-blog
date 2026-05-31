@@ -27,11 +27,12 @@ class PostDetailView(FormMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["commentary"] = self.object.comments.all().order_by(
+        context["comments"] = self.object.comments.all().order_by(
             "-created_time"
         )
         context["form"] = self.get_form()
         return context
+
 
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -49,6 +50,6 @@ class PostDetailView(FormMixin, DetailView):
     def form_valid(self, form):
         comment = form.save(commit=False)
         comment.post = self.object
-        comment.author = self.request.user
+        comment.user = self.request.user
         comment.save()
         return super().form_valid(form)

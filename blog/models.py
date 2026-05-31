@@ -35,5 +35,6 @@ class Commentary(models.Model):
     )
     pass
 
+
     def __str__(self):
-        return f"Comment by {self.author.username} on {self.post.title}"
+        return f"Comment by {self.user.username} on {self.post.title}"

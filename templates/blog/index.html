@@ -2,11 +2,11 @@
 {% block content %}
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            {% for post in posts %}
+            {% for post in post_list %}
                 <div class="card mb-4 post-card">
                     <div class="card-body">
                         <h2><a href="{% url 'blog:post-detail' post.pk %}">{{ post.title }}</a></h2>
-                        <p class="text-muted">By {{ post.author.username }} on {{ post.created_time|date:"F d, Y" }}</p>
+                        <p class="text-muted">By {{ post.owner.username }} on {{ post.created_time|date:"F d, Y" }}</p>
                         <p>{{ post.content|truncatewords:30 }}</p>
                         <span class="badge badge-secondary">{{ post.comments.count }} comments</span>
                     </div>
