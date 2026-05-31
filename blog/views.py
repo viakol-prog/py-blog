@@ -33,7 +33,6 @@ class PostDetailView(FormMixin, DetailView):
         context["form"] = self.get_form()
         return context
 
-
     def post(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             form = self.get_form()
