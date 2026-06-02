@@ -1,8 +1,8 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
-from .models import Post
-from .forms import CommentaryForm
+from blog.models import Post
+from blog.forms import CommentaryForm
 
 
 class PostListView(ListView):

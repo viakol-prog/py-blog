@@ -15,7 +15,6 @@ class Post(models.Model):
         on_delete=models.CASCADE,
         related_name="posts"
     )
-    pass
 
     class Meta:
         ordering = ["-created_time"]
@@ -33,7 +32,6 @@ class Commentary(models.Model):
         on_delete=models.CASCADE,
         related_name="comments"
     )
-    pass
 
     def __str__(self):
         return f"Comment by {self.user.username} on {self.post.title}"
